@@ -7,9 +7,9 @@ RUN if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && /opt/conda/bi
     && rm -rf /tmp/conda-tmp
 
 # [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic 
+
 
 # [Optional] Uncomment if you want to install more Python packages.
-RUN /opt/conda/bin/conda install python-lsp-server mypy -y \
-    && /opt/conda/bin/conda clean -ya
+RUN /opt/conda/bin/conda install python-lsp-server mypy -y
